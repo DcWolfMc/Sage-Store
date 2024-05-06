@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "@phosphor-icons/react";
-import Image from "next/image";
 import { SquareIconButton } from "./SquareIconButton";
 
 export default function ThemeSwitch() {
