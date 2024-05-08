@@ -12,7 +12,7 @@ export const SquareIconButton: FunctionComponent<SquareIconButtonProps> = ({
   const Icon = icon;
   return (
     <button
-      className="flex flex-row items-center justify-center p-2 aspect-square min-h-11 rounded-lg border border-slate-500/30 dark:border-slate-500/50 bg-transparent dark:hover:bg-slate-500/50 hover:bg-slate-500/30 transition-colors"
+      className="flex flex-row items-center justify-center p-2 aspect-square min-h-11 rounded-lg border border-slate-500/30 dark:border-slate-500/50 bg-transparent dark:hover:bg-slate-500/50 hover:bg-slate-500/30"
       {...rest}
     >
       {Icon !== "none" && <Icon className="transition-colors"{...iconProps} />}
