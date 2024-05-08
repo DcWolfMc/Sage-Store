@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${roboto.className} dark:bg-slate-900 bg-slate-200 transition-colors`}>
+      <body className={`${roboto.className} dark:bg-slate-900 dark:text-slate-100 text-slate-900 bg-slate-200 transition-colors`}>
         <Providers>
         {children}
         </Providers>
