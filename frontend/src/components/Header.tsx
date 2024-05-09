@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FunctionComponent } from "react";
 import { Navbar } from "./Navbar";
 import { List } from "@phosphor-icons/react/dist/ssr";
+import { DrawerMenu } from "./DrawerMenu";
 export const Header: FunctionComponent = () => {
 
 
@@ -11,7 +12,8 @@ export const Header: FunctionComponent = () => {
     <header className="pb-[5px] bg-gradient-to-r from-transparent via-violet-900 to-transparent">
       <div className="flex flex-row items-center justify-between xl:justify-start px-8 py-2 gap-4 bg-slate-200 dark:bg-slate-900">
         <div className="flex flex-row gap-2">
-      <button className="xl:hidden" ><List size={32}/></button>
+          <DrawerMenu/>
+      {/* <button className="xl:hidden" ><List size={32}/></button> */}
       <Link href={"/products"} id="logo" className=" flex items-center px-2 gap-2"> 
         <div className="relative min-h-[40px] min-w-11">
         <Image src={"/logo.png"} alt="logo image" fill />
