@@ -43,9 +43,9 @@ export const DrawerMenu = () => {
                 Sage Store
               </strong>
             </div>
-            <button type="button" onClick={() => setOpen(false)}>
+            <DrawerClose type="button" onClick={() => setOpen(false)}>
               <X size={32} />
-            </button>
+            </DrawerClose>
           </DrawerTitle>
           <Separator />
         </DrawerHeader>
@@ -63,9 +63,6 @@ export const DrawerMenu = () => {
 
         <DrawerFooter>
           <button>Submit</button>
-          <DrawerClose>
-            <button>Cancel</button>
-          </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
