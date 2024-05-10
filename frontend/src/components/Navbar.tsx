@@ -1,11 +1,11 @@
 "use client";
-import Link from "next/link";
 import { FunctionComponent } from "react";
 import { NavbarLink } from "./NavbarLink";
 import { usePathname, useRouter } from "next/navigation";
 import ThemeSwitch from "./ThemeSwitch";
 import { SquareIconButton } from "./SquareIconButton";
 import {ShoppingCart, MagnifyingGlass} from "@phosphor-icons/react"
+import Link from "next/link";
 export const Navbar: FunctionComponent = () => {
   const pathname = usePathname();
   const router = useRouter()
@@ -32,9 +32,9 @@ export const Navbar: FunctionComponent = () => {
       <SquareIconButton icon={MagnifyingGlass} iconProps={{ size: "1.5rem" }}/>
       <ThemeSwitch />
       <SquareIconButton icon={ShoppingCart} iconProps={{ size: "1.5rem" }}/>
-      <button onClick={()=>{router.push('login')}} className="flex flex-row gap- 2 justify-center items-center px-8 py-1 rounded-lg text-lg bg-slate-500/30 hover:bg-slate-500/50 dark:bg-slate-500/70 dark:hover:bg-slate-500" href={""}>
+      <Link href={'/login'} className="flex flex-row gap- 2 justify-center items-center px-8 py-1 rounded-lg text-lg bg-slate-500/30 hover:bg-slate-500/50 dark:bg-slate-500/70 dark:hover:bg-slate-500">
           Enter
-      </button>
+      </Link>
       </div>
     </div>
   );
