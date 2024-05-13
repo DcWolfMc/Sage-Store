@@ -25,7 +25,7 @@ export const Navbar: FunctionComponent = () => {
         {links.map((item) => (
           <NavbarLink
             key={item.title}
-            path={item.path}
+            href={item.path}
             title={item.title}
             active={item.path === pathname}
           />

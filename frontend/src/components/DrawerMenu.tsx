@@ -52,11 +52,11 @@ export const DrawerMenu = () => {
         <div className="p-2 flex flex-col gap-4 ">
           {links.map((item) => (
               <NavbarLink
-                key={item.title}
-                path={item.path}
-                title={item.title}
-                active={item.path === pathname}
-              />
+              key={item.title}
+              href={item.path}
+              title={item.title}
+              active={item.path === pathname}
+              onClick={() => setOpen(false)}             />
 
           ))}
         </div>

@@ -3,6 +3,7 @@ import { ArrowUp } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { FunctionComponent } from "react";
 import useWindowDimensions from "@/utils/useWindowDimensions";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 export const Footer: FunctionComponent = () => {
   const {height, width} = useWindowDimensions()
   
@@ -19,10 +20,10 @@ export const Footer: FunctionComponent = () => {
       </button>
       <div className="flex  flex-col gap-[10px] p-2 xl:px-32 lg:px-24 md:px-16">
         <div className="flex flex-col py-2 px-4 gap-4 md:flex-row md:justify-between md:px-8 lg:px-16 ">
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 w-fit">
             <strong>Navigation</strong>
             {
-              <Link href={"/login"} className="text-slate-500 text-xs">
+              <Link href={"/login"} className="text-slate-500 text-xs hover:underline">
                 Enter
               </Link>
             }
@@ -30,7 +31,7 @@ export const Footer: FunctionComponent = () => {
               <Link
                 key={item.title}
                 href={item.path}
-                className="text-slate-500 text-xs"
+                className="text-slate-500 text-xs hover:underline"
               >
                 {item.title}
               </Link>
@@ -41,12 +42,19 @@ export const Footer: FunctionComponent = () => {
             Copyright 2024 Daniel Colares
             </span>
           }
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 w-fit">
             <strong>Follow us</strong>
-            {/* aqui fica os links do seguir */}
+            <div className="flex flex-row gap-2 items-center">
+              <Link target="_blank" href={'https://github.com/DcWolfMc'}>
+              <FaGithub size={24} />
+              </Link>
+              <Link target="_blank" href={'https://www.linkedin.com/in/daniel-colares-b590681b6/'}>
+              <FaLinkedin size={24} />
+              </Link>
+            </div>
           </div>
           { width<768&&
-            <span className="text-slate-500/50 dark:text-slate-500 truncate">
+            <span className="text-slate-500/50 dark:text-slate-500 truncate w-fit">
             Copyright 2024 Daniel Colares
             </span>
           }
