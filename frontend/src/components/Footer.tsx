@@ -5,7 +5,7 @@ import { FunctionComponent } from "react";
 import useWindowDimensions from "@/utils/useWindowDimensions";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 export const Footer: FunctionComponent = () => {
-  const {height, width} = useWindowDimensions()
+  const {width} = useWindowDimensions()
   
   const links = [
     { title: "Products", path: "/products" },
