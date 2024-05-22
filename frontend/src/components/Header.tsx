@@ -9,8 +9,8 @@ export const Header: FunctionComponent = () => {
 
 
   return (
-    <header className="pb-[5px] bg-gradient-to-r from-transparent via-violet-900 to-transparent">
-      <div className="flex flex-row items-center justify-between xl:justify-start px-8 py-2 gap-4 bg-slate-200 dark:bg-slate-900">
+    <header className="w-full flex justify-center pb-[5px] bg-gradient-to-r from-transparent via-violet-900 to-transparent">
+      <div className="w-full flex flex-row items-center justify-between xl:justify-start px-8 py-2 gap-4 bg-slate-200 dark:bg-slate-900">
         <div className="flex flex-row gap-2">
           <DrawerMenu/>
       {/* <button className="xl:hidden" ><List size={32}/></button> */}
