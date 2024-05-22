@@ -9,7 +9,7 @@ export const Header: FunctionComponent = () => {
 
 
   return (
-    <header className="w-full flex justify-center pb-[5px] bg-gradient-to-r from-transparent via-violet-900 to-transparent">
+    <header className="top-0 left-0 z-10 fixed w-full flex justify-center pb-[5px] bg-gradient-to-r from-transparent via-violet-900 to-transparent">
       <div className="w-full flex flex-row items-center justify-between xl:justify-start px-8 py-2 gap-4 bg-slate-200 dark:bg-slate-900">
         <div className="flex flex-row gap-2">
           <DrawerMenu/>

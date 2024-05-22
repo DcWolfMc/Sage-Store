@@ -7,9 +7,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className=" space-y-[0.75rem]">
+    <div className="flex flex-col gap-[0.75rem]">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 pt-[0.75rem] mt-[44px]">
         {children}
       </main>
       <Footer />
