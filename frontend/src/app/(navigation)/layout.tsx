@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <div className="flex flex-col gap-[0.75rem]">
       <Header />
-      <main className="flex-1 pt-[0.75rem] mt-[44px]">
+      <main className="flex-1 pt-[0.75rem] mt-[54px]">
         {children}
       </main>
       <Footer />

@@ -19,7 +19,6 @@ import { Separator } from "./ui/separator";
 export const DrawerMenu = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  console.log(pathname);
   const links = [
     { title: "Products", path: "/products" },
     { title: "About", path: "/about" },

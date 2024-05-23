@@ -1,15 +1,13 @@
 "use client";
 import { FunctionComponent } from "react";
 import { NavbarLink } from "./NavbarLink";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname} from "next/navigation";
 import ThemeSwitch from "./ThemeSwitch";
 import { SquareIconButton } from "./SquareIconButton";
 import { ShoppingCart, MagnifyingGlass } from "@phosphor-icons/react";
 import Link from "next/link";
 export const Navbar: FunctionComponent = () => {
   const pathname = usePathname();
-  const router = useRouter();
-  console.log(pathname);
   const links = [
     { title: "Products", path: "/products" },
     { title: "About", path: "/about" },
