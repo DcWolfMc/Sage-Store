@@ -13,9 +13,15 @@ export const Footer: FunctionComponent = () => {
     { title: "About", path: "/about" },
     { title: "Contact", path: "/contact" },
   ];
+  const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+
+  function scrollToTop() {
+      if (!isBrowser()) return;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   return (
     <footer className="flex flex-col gap-[10px]">
-      <button className="flex justify-center items-center py-2 gap-2 w-full bg-slate-500/30 hover:bg-slate-500/50 dark:bg-slate-500/70 dark:hover:bg-slate-500">
+      <button onClick={scrollToTop} className="flex justify-center items-center py-2 gap-2 w-full bg-slate-500/30 hover:bg-slate-500/50 dark:bg-slate-500/70 dark:hover:bg-slate-500">
         <span>Back to top</span>
         <ArrowUp />
       </button>
