@@ -115,7 +115,7 @@ const products = [
     description:
       "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
     price: 1499,
-    discountPercentage: 4.15,
+    discountPercentage: 0,
     rating: 4.25,
     stock: 50,
     brand: "Samsung",
@@ -136,7 +136,7 @@ const products = [
     price: 1499,
     discountPercentage: 10.23,
     rating: 4.43,
-    stock: 68,
+    stock: 48,
     brand: "Microsoft Surface",
     category: "laptops",
     thumbnail: "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
@@ -579,7 +579,7 @@ const products = [
 
 export default function Products() {
   return (
-    <div className="overflow-auto p-4 flex flex-col items-center">
+    <div className="pt-4 flex flex-col items-center">
       Products
       <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-4 xl:gap-8 w-full max-w-[1440px]">
         {products.map((product) => (
