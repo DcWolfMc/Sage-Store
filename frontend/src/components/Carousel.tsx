@@ -84,9 +84,9 @@ export const CarouselWithPreview: FunctionComponent<
       >
         {tamplateImage.map((image, index) => (
           <button
-            onClick={() => handleClickImagePreview(index + 1)}
+            onClick={() => handleClickImagePreview(index)}
             id="carousel-preview-item"
-            className={`relative h-16 w-12 min-w-12 border  ${
+            className={`relative h-16 w-12 min-w-12 border-2  ${
               current == index + 1
                 ? `border-violet-700`
                 : `border-transparent hover:border-slate-500/30 dark:hover:border-slate-500/50`
