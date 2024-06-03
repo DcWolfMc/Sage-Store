@@ -11,7 +11,7 @@ interface ProductItemProps {
   discount?: number;
   rating: number;
   stock: number;
-  brand: string;
+  brand?: string;
   category: string;
   thumbnail: string;
 }
@@ -51,7 +51,7 @@ export const ProductItem: FunctionComponent<ProductItemProps> = ({
           <h3 className="text-base md:text-lg line-clamp-2 text-wrap">
             {title}
           </h3>
-          <Tag tagName={brand} interactable={false} checked />
+          {brand&&<Tag tagName={brand} interactable={false} checked />}
           <div className="flex flex-row gap-2 items-center align-middle">
             <RatingStars
               className=" text-amber-500 dark:text-amber-400"
