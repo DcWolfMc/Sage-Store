@@ -1,3 +1,4 @@
+import { DummyProductsDataType } from "@/@types/dummyjsonTypes";
 import { CarouselWithPreview } from "@/components/Carousel";
 import { NextPage } from "next/types";
 interface ProductPageParams {
@@ -14,7 +15,7 @@ interface ProductPageParams {
 
 const ProductPage: NextPage<{params:{id:string}}> = async ({ params }) => {
   console.log("params:", params);
-  const data:ProductPageParams = await getData(params.id)
+  const data:DummyProductsDataType = await getData(params.id)
 
   console.log("data",data);
   
@@ -22,7 +23,7 @@ const ProductPage: NextPage<{params:{id:string}}> = async ({ params }) => {
     <div className="p-2 pt-4 flex lx:flex-row flex-col gap-4">
       <strong className="text-2xl">Produto ID: {data.id}</strong>
       
-        <CarouselWithPreview />
+        <CarouselWithPreview images={data.images}/>
         {data.stock <= 50 && (
         <div className="w-full text-center font-bold bg-amber-500 text-slate-100 dark:text-slate-900">
           Last Units

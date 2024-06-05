@@ -1,4 +1,4 @@
-import { ProductItem } from "@/components/ProductItem";
+import { ProductItem, ProductItemProps } from "@/components/ProductItem";
 import { DummyProductsDataType } from "@/@types/dummyjsonTypes";
 // const products = [
 //   {
@@ -593,9 +593,8 @@ export default async function Products() {
             rating={product.rating}
             stock={product.stock}
             brand={product.brand}
-            category={product.category}
             thumbnail={product.thumbnail}
-            discount={product.discountPercentage}
+            discount={product.discount}
           />
         ))}
       </div>
@@ -612,7 +611,7 @@ export const getProducts = async (limit?: string) => {
     throw new Error("Failed to fetch data");
   }
 
-  const data: Promise<DummyProductsDataType[]> = res.json().then((response) => {
+  const data: Promise<ProductItemProps[]> = res.json().then((response) => {
     console.log("response", response.products);
     return response.products.map((product: DummyProductsDataType) => {
       return {
