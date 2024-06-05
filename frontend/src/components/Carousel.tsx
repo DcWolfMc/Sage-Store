@@ -33,7 +33,6 @@ export const CarouselWithPreview: FunctionComponent<
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
-
   // const tamplateImage = [
   //   "https://cdn.dummyjson.com/product-images/1/1.jpg",
   //   "https://cdn.dummyjson.com/product-images/1/2.jpg",
@@ -51,7 +50,6 @@ export const CarouselWithPreview: FunctionComponent<
   //   "https://cdn.dummyjson.com/product-images/1/4.jpg",
   //   "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
   // ];
-
   function handleClickImagePreview(index: number) {
     setCurrent(index);
     api?.scrollTo(index);
