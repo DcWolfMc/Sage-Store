@@ -4,7 +4,7 @@ import { Tag } from "./Tag";
 import { RatingStars } from "./RatingStars";
 import Link from "next/link";
 
-interface ProductItemProps {
+export interface ProductItemProps {
   id: number;
   title: string;
   price: number;
@@ -12,13 +12,11 @@ interface ProductItemProps {
   rating: number;
   stock: number;
   brand?: string;
-  category: string;
   thumbnail: string;
 }
 
 export const ProductItem: FunctionComponent<ProductItemProps> = ({
   brand,
-  category,
   id,
   price,
   rating,
@@ -27,6 +25,9 @@ export const ProductItem: FunctionComponent<ProductItemProps> = ({
   title,
   discount,
 }) => {
+
+  console.log(`discount: ${id} `, discount);
+  
   function showPrice() {
     if (!discount) {
       return price;
@@ -44,6 +45,7 @@ export const ProductItem: FunctionComponent<ProductItemProps> = ({
             className="p-2 object-cover md:object-cover"
             alt={title}
             src={thumbnail}
+            sizes="(max-width: 320px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
           />
         </div>
