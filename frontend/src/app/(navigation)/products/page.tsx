@@ -13,7 +13,6 @@ const Products: NextPage<{
   const currentPage = Number(searchParams?.page) || 1;
   const currentLimit = Number(searchParams?.limit) || 30;
   const data = await getProducts(currentLimit, currentPage);
-  console.log("products data:", data);
 
   return (
     <div className="pt-4 flex flex-col items-center">
