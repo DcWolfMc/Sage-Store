@@ -16,7 +16,7 @@ export const Header: FunctionComponent = () => {
             className=" flex items-center px-2 gap-2"
           >
             <div className="relative min-h-[40px] min-w-11">
-              <Image src={"/logo.png"} alt="logo image" fill />
+              <Image src={"/logo.png"} alt="logo image" fill sizes="40px"/>
             </div>
             <strong className="text-2xl hidden xl:flex text-nowrap">
               Sage Store

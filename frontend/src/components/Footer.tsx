@@ -74,7 +74,7 @@ export const Footer: FunctionComponent = () => {
         </div>
         <div className="flex flex-row justify-center items-center gap-2 py-2 border-t border-slate-500">
         <div className="relative min-h-[40px] min-w-11">
-        <Image src={"/logo.png"} alt="logo image" fill />
+        <Image src={"/logo.png"} alt="logo image" fill sizes="40px"/>
         </div>
         <strong className="text-2xl xl:flex text-nowrap">
         Sage Store
