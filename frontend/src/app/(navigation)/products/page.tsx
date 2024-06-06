@@ -4,6 +4,7 @@ import {
   getProductsDataType,
 } from "@/@types/dummyjsonTypes";
 import { NextPage } from "next/types";
+import { Pagination } from "@/components/Pagination";
 
 const Products: NextPage<{
   searchParams: { page?: string; limit?: string };
@@ -15,8 +16,9 @@ const Products: NextPage<{
   const data = await getProducts(currentLimit, currentPage);
 
   return (
-    <div className="pt-4 flex flex-col items-center">
-      Products
+    <div className="pt-4 flex flex-col items-center gap-4">
+      <div id="filters-params"></div>
+      <div id="sort-params"></div>
       <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-4 xl:gap-8 w-full max-w-[1440px]">
         {data.products.map((product) => (
           <ProductItem
@@ -32,6 +34,7 @@ const Products: NextPage<{
           />
         ))}
       </div>
+      <Pagination totalOfProducts={data.total}/>
     </div>
   );
 };
@@ -40,7 +43,7 @@ export const getProducts = async (limit: number, page: number) => {
   if (page) {
     skip = (page - 1) * limit;
   }
-  
+
   const res = await fetch(
     `https://dummyjson.com/products?limit=${limit ? limit : "30"}&skip=${skip}`
   );

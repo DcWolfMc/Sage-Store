@@ -17,7 +17,7 @@ export const SmallButton: FunctionComponent<SmallButtonProps> = ({
   ...rest
 }) => {
     const Icon = icon;
-  return <button className="flex flex-row gap- 2 justify-center items-center px-4 py-1 rounded-lg text-lg bg-slate-500/30 hover:bg-slate-500/50 dark:bg-slate-500/70 dark:hover:bg-slate-500" {...rest}>
+  return <button className="flex flex-row gap- 2 justify-center items-center px-4 py-1 rounded-lg text-lg bg-slate-500/30 enabled:hover:bg-slate-500/50 dark:bg-slate-500/70 enabled:dark:hover:bg-slate-500 disabled:opacity-70" {...rest}>
     {Icon !== "none" && iconPosition === "left" && <Icon className="transition-colors"{...iconProps} />}
     {children}
     {Icon !== "none" && iconPosition === "right" && <Icon className="transition-colors"{...iconProps} />}
