@@ -1,3 +1,5 @@
+import { getProducts } from "@/app/(navigation)/products/page";
+
 export type DummyProductsDataType = {
   id: number;
   title: string;
@@ -43,3 +45,16 @@ export type DummyProductsMetadataType = {
     qrCode: string
 }
 
+export type getProductsDataType = {
+products: {  id: number;
+  title: string;
+  price: number;
+  discount?: number;
+  rating: number;
+  stock: number;
+  brand?: string;
+  thumbnail: string;}[]
+  total: 0;
+  skip: 0;
+  limit: 0;
+}

@@ -25,9 +25,6 @@ export const ProductItem: FunctionComponent<ProductItemProps> = ({
   title,
   discount,
 }) => {
-
-  console.log(`discount: ${id} `, discount);
-  
   function showPrice() {
     if (!discount) {
       return price;
