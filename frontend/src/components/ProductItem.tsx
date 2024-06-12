@@ -63,12 +63,12 @@ export const ProductItem: FunctionComponent<ProductItemProps> = ({
           <strong className="text-lg md:text-2xl">
             USD$ {showPrice().toFixed(2)}
           </strong>
-          {!discount|| discount!==0 && (
+          {!discount|| discount>=5 && (
             <div className="flex flex-col md:flex-row items-start md:items-center gap-1 text-md md:text-lg">
               <strong className="text-slate-500 line-through">
                 USD$ {price.toFixed(2)}
               </strong>
-              <strong className="text-violet-700 ">{discount}%</strong>
+              <strong className="text-violet-700 dark:text-violet-500 ">{-discount}%</strong>
             </div>
           )}
         </div>

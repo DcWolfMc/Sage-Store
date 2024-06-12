@@ -26,7 +26,9 @@ const ProductPage: NextPage<{ params: { id: string } }> = async ({
         <div className="max-w-[480px] py-4 flex flex-col items-start gap-4">
           <strong className="text-2xl">{data.title}</strong>
           <div className="flex flex-row gap-4">
-            <Tag tagName={data.brand} interactable={false} checked />
+            {data.brand && (
+              <Tag tagName={data.brand} interactable={false} checked />
+            )}
             <Tag tagName={data.category} interactable={false} />
             {/* {data.tags.map((tag, index)=>(
 
@@ -44,13 +46,13 @@ const ProductPage: NextPage<{ params: { id: string } }> = async ({
             USD$ {showPrice().toFixed(2)}
           </strong>
           {!data.discountPercentage ||
-            (data.discountPercentage !== 0 && (
-              <div className="flex flex-row items-center gap-1 text-2xl">
+            (data.discountPercentage >= 5 && (
+              <div className="flex flex-row items-center gap-1 md:text-2xl text-base">
                 <strong className="text-slate-500 line-through">
                   USD$ {data.price.toFixed(2)}
                 </strong>
-                <strong className="text-violet-700 ">
-                  {data.discountPercentage}%
+                <strong className="text-violet-700 dark:text-violet-500 ">
+                  {-data.discountPercentage}%
                 </strong>
               </div>
             ))}
@@ -72,7 +74,7 @@ const ProductPage: NextPage<{ params: { id: string } }> = async ({
   );
 };
 
-export async function getData(productId: string) {
+async function getData(productId: string) {
   const res = await fetch(`https://dummyjson.com/products/${productId}`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.

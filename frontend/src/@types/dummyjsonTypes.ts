@@ -1,4 +1,3 @@
-import { getProducts } from "@/app/(navigation)/products/page";
 
 export type DummyProductsDataType = {
   id: number;
@@ -10,7 +9,7 @@ export type DummyProductsDataType = {
   rating: number;
   stock: number;
   tags: string[];
-  brand: string;
+  brand?: string;
   sku: string;
   weight: number;
   dimensions: DummyProductsDimensionsType;

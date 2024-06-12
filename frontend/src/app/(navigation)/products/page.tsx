@@ -38,7 +38,7 @@ const Products: NextPage<{
     </div>
   );
 };
-export const getProducts = async (limit: number, page: number) => {
+const getProducts = async (limit: number, page: number) => {
   let skip = 0;
   if (page) {
     skip = (page - 1) * limit;
