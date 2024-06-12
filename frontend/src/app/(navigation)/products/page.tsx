@@ -34,7 +34,7 @@ const Products: NextPage<{
           />
         ))}
       </div>
-      <Pagination totalOfProducts={data.total}/>
+      <Pagination totalOfProducts={data.total} />
     </div>
   );
 };
@@ -45,7 +45,8 @@ export const getProducts = async (limit: number, page: number) => {
   }
 
   const res = await fetch(
-    `https://dummyjson.com/products?limit=${limit ? limit : "30"}&skip=${skip}`
+    `https://dummyjson.com/products?limit=${limit ? limit : "30"}&skip=${skip}`,
+    { next: { revalidate: 60 * 60 * 1 /*1 hour*/ } }
   );
 
   if (!res.ok) {
