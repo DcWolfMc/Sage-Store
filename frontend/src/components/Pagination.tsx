@@ -70,7 +70,7 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
     // Add previous pages up to 2 pages before the current page
     for (let i = Math.max(1, currentPage - 2); i < currentPage; i++) {
       buttons.push(
-        <SmallButton key={i} variant="outline" style={width<768&&i == currentPage-2?{display:"none"}:{}} onClick={() => handleChangePage(i)}>
+        <SmallButton key={i} variant="outline" size="fixed-square" style={width<768&&i == currentPage-2?{display:"none"}:{}} onClick={() => handleChangePage(i)}>
           {i}
         </SmallButton>
       );
@@ -78,7 +78,7 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
 
     // Add current page
     buttons.push(
-      <SmallButton key={currentPage} variant="outline" disabled className={` w-[40px] md:w-[44px] flex flex-row gap-2 justify-center items-center px-4 py-1 rounded-lg text-lg text-violet-700 dark:text-violet-500 border border-violet-700 dark:border-violet-700 bg-transparent enabled:hover:bg-slate-500/50 enabled:dark:hover:bg-slate-500 disabled:opacity-70`}>
+      <SmallButton key={currentPage} variant="outline" size="fixed-square" disabled className={`flex flex-row gap-2 justify-center items-center px-4 py-1 rounded-lg text-lg text-violet-700 dark:text-violet-500 border border-violet-700 dark:border-violet-700 bg-transparent enabled:hover:bg-slate-500/50 enabled:dark:hover:bg-slate-500 disabled:opacity-70`}>
         {currentPage}
       </SmallButton>
     );
@@ -86,7 +86,7 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
     // Add next pages up to 3 pages after the current page
     for (let i = currentPage + 1; i <= Math.min(totalPages, currentPage + 3); i++) {
       buttons.push(
-        <SmallButton key={i} variant="outline" style={width<768&&i == currentPage+3?{display:"none"}:width<375&&i==currentPage+2?{display:"none"}:{}} onClick={() => handleChangePage(i)}>
+        <SmallButton key={i} variant="outline" size="fixed-square" style={width<768&&i == currentPage+3?{display:"none"}:width<375&&i==currentPage+2?{display:"none"}:{}} onClick={() => handleChangePage(i)}>
           {i}
         </SmallButton>
       );
@@ -95,10 +95,10 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
     // Add ellipsis and last page if there are more pages after the next 3 pages
     if (currentPage + 3 < totalPages) {
       if (currentPage + 4 < totalPages) {
-        buttons.push(<SmallButton key="ellipsis" variant="outline" style={width<768?{display:"none"}:{}} disabled>...</SmallButton>);
+        buttons.push(<SmallButton key="ellipsis" variant="outline" size="fixed-square" style={width<768?{display:"none"}:{}} disabled>...</SmallButton>);
       }
       buttons.push(
-        <SmallButton key={totalPages} variant="outline" style={width<768?{display:"none"}:{}} onClick={() => handleChangePage(totalPages)}>
+        <SmallButton key={totalPages} variant="outline" size="fixed-square" style={width<768?{display:"none"}:{}} onClick={() => handleChangePage(totalPages)}>
           {totalPages}
         </SmallButton>
       );
@@ -114,12 +114,14 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
       <SmallButton
         icon={CaretDoubleLeft}
         variant="outline"
+        size="fixed-square"
         onClick={handleJumpToFirstPage}
         disabled={currentPage == 1}
       />
       <SmallButton
         icon={CaretLeft}
         variant="outline"
+        size="fixed-square"
         onClick={handlePreviousPage}
         disabled={currentPage == 1}
       />
@@ -129,12 +131,14 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
       <SmallButton
         icon={CaretRight}
         variant="outline"
+        size="fixed-square"
         onClick={handleNextPage}
         disabled={currentPage == totalPages}
       />
       <SmallButton
         icon={CaretDoubleRight}
         variant="outline"
+        size="fixed-square"
         onClick={handleJumpToLastPage}
         disabled={currentPage == totalPages}
       />

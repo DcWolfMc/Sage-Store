@@ -5,6 +5,8 @@ import {
 } from "@/@types/dummyjsonTypes";
 import { NextPage } from "next/types";
 import { Pagination } from "@/components/Pagination";
+import { SmallButton } from "@/components/SmallButton";
+import { Faders, CurrencyDollar, Star } from "@phosphor-icons/react/dist/ssr";
 
 const Products: NextPage<{
   searchParams: { page?: string; limit?: string };
@@ -16,10 +18,24 @@ const Products: NextPage<{
   const data = await getProducts(currentLimit, currentPage);
 
   return (
-    <div className="pt-4 flex flex-col items-center gap-4">
-      <div id="filters-params"></div>
-      <div id="sort-params"></div>
-      <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-4 xl:gap-8 w-full max-w-[1440px]">
+    <div className="pt-4 flex flex-col items-center gap-4 md:px-8">
+      <div
+        id="filters-params"
+        className="py-4 w-full flex flex-row gap-2 border-b border-slate-500"
+      >
+        <SmallButton icon={Faders} iconProps={{transform:"rotate(90)"}} children={"Filters"} />
+        <SmallButton icon={CurrencyDollar} children={"Price"} />
+        <SmallButton icon={Star} iconProps={{weight:"fill"}} children={"Rating"} />
+      </div>
+      <div id="sort-params" className="w-full flex flex-row justify-between">
+        <div>
+          <span>{data.total} results</span>
+        </div>
+        <div>
+          <span>Products per page</span>
+        </div>
+      </div>
+      <div className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-4 xl:gap-8 w-full max-w-[1440px]">
         {data.products.map((product) => (
           <ProductItem
             key={product.id}
