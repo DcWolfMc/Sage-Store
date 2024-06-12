@@ -8,6 +8,7 @@ import {
   CaretLeft,
   CaretDoubleLeft,
 } from "@phosphor-icons/react";
+import useWindowDimensions from "@/utils/useWindowDimensions";
 interface PaginationProps {
   totalOfProducts: number;
 }
@@ -15,6 +16,7 @@ interface PaginationProps {
 export const Pagination: FunctionComponent<PaginationProps> = ({
   totalOfProducts,
 }) => {
+  const {width} = useWindowDimensions()
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -27,14 +29,11 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
     currentPage: currentPage,
     totalPages: totalPages,
   });
-  console.log("totalOfPages-2",totalPages);
-
-  console.log();
 
   function handleChangePage(newPage: number) {
+    
     const params = new URLSearchParams(searchParams);
     params.set("page", newPage.toString());
-    params.delete("page");
     replace(`${pathname}?${params.toString()}`);
   }
   function handleNextPage() {
@@ -64,12 +63,14 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
 
 
   const renderPageButtons = () => {
+    console.log("rendering");
+    
     let buttons = [];
 
     // Add previous pages up to 2 pages before the current page
     for (let i = Math.max(1, currentPage - 2); i < currentPage; i++) {
       buttons.push(
-        <SmallButton key={i} onClick={() => handleChangePage(i)}>
+        <SmallButton key={i} variant="outline" style={width<768&&i == currentPage-2?{display:"none"}:{}} onClick={() => handleChangePage(i)}>
           {i}
         </SmallButton>
       );
@@ -77,7 +78,7 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
 
     // Add current page
     buttons.push(
-      <SmallButton key={currentPage} disabled>
+      <SmallButton key={currentPage} variant="outline" disabled className={` w-[40px] md:w-[44px] flex flex-row gap-2 justify-center items-center px-4 py-1 rounded-lg text-lg text-violet-700 dark:text-violet-500 border border-violet-700 dark:border-violet-700 bg-transparent enabled:hover:bg-slate-500/50 enabled:dark:hover:bg-slate-500 disabled:opacity-70`}>
         {currentPage}
       </SmallButton>
     );
@@ -85,7 +86,7 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
     // Add next pages up to 3 pages after the current page
     for (let i = currentPage + 1; i <= Math.min(totalPages, currentPage + 3); i++) {
       buttons.push(
-        <SmallButton key={i} onClick={() => handleChangePage(i)}>
+        <SmallButton key={i} variant="outline" style={width<768&&i == currentPage+3?{display:"none"}:width<375&&i==currentPage+2?{display:"none"}:{}} onClick={() => handleChangePage(i)}>
           {i}
         </SmallButton>
       );
@@ -94,10 +95,10 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
     // Add ellipsis and last page if there are more pages after the next 3 pages
     if (currentPage + 3 < totalPages) {
       if (currentPage + 4 < totalPages) {
-        buttons.push(<SmallButton key="ellipsis" disabled>...</SmallButton>);
+        buttons.push(<SmallButton key="ellipsis" variant="outline" style={width<768?{display:"none"}:{}} disabled>...</SmallButton>);
       }
       buttons.push(
-        <SmallButton key={totalPages} onClick={() => handleChangePage(totalPages)}>
+        <SmallButton key={totalPages} variant="outline" style={width<768?{display:"none"}:{}} onClick={() => handleChangePage(totalPages)}>
           {totalPages}
         </SmallButton>
       );
@@ -109,32 +110,31 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
 
 
   return (
-    <div className="flex flex-row gap-2 items-stretch justify-center">
+    <div className="flex flex-row gap-1 md:gap-2 items-stretch justify-center">
       <SmallButton
         icon={CaretDoubleLeft}
+        variant="outline"
         onClick={handleJumpToFirstPage}
         disabled={currentPage == 1}
       />
       <SmallButton
         icon={CaretLeft}
+        variant="outline"
         onClick={handlePreviousPage}
         disabled={currentPage == 1}
       />
-      {/* {currentPage >= 3&& <SmallButton>{currentPage-2}</SmallButton>}
-      {currentPage >= 2&& <SmallButton>{currentPage-1}</SmallButton>}
-
-      <SmallButton disabled>{currentPage}</SmallButton>
-      { Array.from({length:3}).map((_,index)=>(<></>)) } */}
 
       {renderPageButtons()}
 
       <SmallButton
         icon={CaretRight}
+        variant="outline"
         onClick={handleNextPage}
         disabled={currentPage == totalPages}
       />
       <SmallButton
         icon={CaretDoubleRight}
+        variant="outline"
         onClick={handleJumpToLastPage}
         disabled={currentPage == totalPages}
       />
